@@ -1,0 +1,24 @@
+img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+}
+
+.addressee {
+  flex-direction: row-reverse
+}
+
+.addressed .message-content{
+  background: lavender;
+}
+
+.addressee .message-content{
+  background: lavenderblush;
+}
+
+.message-content{
+  border-radius: 10px;
+  max-width: 50%;
+}
+
+

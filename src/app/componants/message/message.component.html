@@ -1,0 +1,10 @@
+<div class="my-1">
+  <div class="d-flex align-items-center" [ngClass]="{'addressed': message.senderId === loggedInUserId, 'addressee': message.senderId !== loggedInUserId }">
+    <img class="rounded-circle" [src]="message.avatar">
+    <div class="py-2 px-3 message-content mx-2">
+      {{message.message}}
+    </div>
+    <span class="mx-2 grey-text">{{message.time}}</span>
+  </div>
+
+</div>

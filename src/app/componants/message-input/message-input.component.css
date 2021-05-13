@@ -1,0 +1,20 @@
+.input-icon{
+  color: gray;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  border-radius: 20px 0px 0px 20px;
+}
+
+input {
+  width: 80%;
+  border: 1px solid gray;
+  border-left: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn-submit {
+  border-radius: 0px 20px 20px 0px;
+}
