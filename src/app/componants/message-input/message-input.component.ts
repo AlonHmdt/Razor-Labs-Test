@@ -13,7 +13,11 @@ import {badWords} from '../../validators/bad-words.validator';
 })
 export class MessageInputComponent implements OnInit {
   messageForm: FormGroup;
+  isTimeOutOn: boolean;
+  clickCount = 0;
+  allowedClickPerMinute = 10;
 
+  buttonDisable: boolean;
   constructor(private userService: UserService, private httpService: HttpService, private messageService: MessageService,
               private fb: FormBuilder) {
   }
@@ -27,6 +31,14 @@ export class MessageInputComponent implements OnInit {
 
 
   submit(): void {
+    if (!this.isTimeOutOn) {
+      this.timeOutInit();
+    }
+    if (this.clickCount === this.allowedClickPerMinute) {
+      this.buttonDisable = true;
+      return;
+    }
+    this.clickCount = this.clickCount + 1;
     if (this.isValid()) {
       const message = new Message();
       message.message = this.messageForm.get('messageContent').value;
@@ -49,6 +61,15 @@ export class MessageInputComponent implements OnInit {
     }
   }
 
+
+  timeOutInit(): void{
+    this.isTimeOutOn = true;
+    setTimeout(() => {
+      this.isTimeOutOn = false;
+      this.clickCount = 0;
+      this.buttonDisable = false;
+      }, 60000);
+  }
 
 
 }

@@ -9,6 +9,6 @@
       <mat-icon class="ml-2" aria-hidden="false">comment</mat-icon>
     </span>
     <input class="px-2" type="text" formControlName="messageContent" placeholder="Type your message here..." [ngClass]="{'alert-danger': messageForm.get('messageContent').hasError('badWord')}">
-    <button class="btn-submit px-4" mat-flat-button color="primary" (click)="submit()">Send</button>
+    <button class="btn-submit px-4" mat-flat-button color="primary" (click)="submit()" [disabled]="buttonDisable">Send</button>
   </div>
 </div>
